@@ -2,6 +2,6 @@
 	<div>
 		<GlobalHeader />
 		<NuxtPage />
-		<GlobalFooter />
+		<!-- <GlobalFooter /> -->
 	</div>
 </template>
