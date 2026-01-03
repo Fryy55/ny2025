@@ -20,7 +20,8 @@ header {
 	animation: grad-shift 10s ease infinite;
 
 	position: sticky;
-	top: 0px;
+	z-index: 29387; /* chosen by a fair nitro roll */
+	top: 0;
 }
 
 .happy-new-year-header {

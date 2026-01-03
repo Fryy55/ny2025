@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@formkit/addons": "^1.7.2",
+    "@formkit/nuxt": "^1.7.2",
     "@le-pepe/nuxt-snow-effect": "^1.5.0",
     "@nuxt/fonts": "^0.12.1",
     "nuxt": "^4.2.2",

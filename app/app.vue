@@ -3,7 +3,7 @@
 		<SnowEffectComponent :speed=0.5 />
 		<GlobalHeader />
 		<div class="NuxtPageWrapper">
-			<NuxtPage />
+			<NuxtPage :page-key="route => route.fullPath" />
 		</div>
 		<GlobalFooter />
 	</div>

@@ -1,5 +1,6 @@
 :root {
 	--background-color: #191818;
+	--text-shadow-color: #dd9aee;
 }
 
 html, body {
@@ -8,45 +9,234 @@ html, body {
 }
 
 body {
-	/* padding-bottom: 40px; */ /* this fixes the footer idk */
 	min-height: 100vh;
 	background-color: var(--background-color);
 	position: relative;
 }
 
-p {
+p,
+.formkit-wrapper[data-tab-style="progress"],
+button,
+.formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab,
+.formkit-fieldset,
+input.formkit-input,
+li.formkit-message {
 	margin-left: 15rem;
 	margin-right: 15rem;
 
 	color: white;
 	font-family: "Lilita2", serif;
 	font-size: xx-large;
-	text-shadow: 0px 0px 6px #dd9aee;
+	text-shadow: 0px 0px 6px var(--text-shadow-color);
 	text-align: center;
 
 	background:
 		linear-gradient(var(--background-color)) padding-box,
 		linear-gradient(45deg, #dd9aee, #6efffd, #e7e36c, #dd9aee, #6efffd, #e7e36c, #dd9aee, #6efffd, #e7e36c) border-box;
-		background-size: 300% 100%;
-		animation: grad-shift 10s ease infinite;
-		padding: 5px;
-		border: 6px solid transparent;
-		border-radius: 15px;
+	background-size: 300% 100%;
+	animation: grad-shift 10s ease infinite;
+	padding: 5px;
+	border: 6px solid transparent;
+	border-radius: 15px;
+}
+
+button, .formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab {
+	cursor: pointer;
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(45deg, #dd9aee, #ef5e3e, #78e76c, #dd9aee, #ef5e3e, #78e76c) border-box;
+	background-size: 300% 100%;
+
+	transition: color 0.3s;
+}
+button:hover {
+	color: darkgray;
+	transition:
+		color 0.3s,
+		text-shadow 0.25s;
+}
+button:active {
+	text-shadow: 0px 0px 12px var(--text-shadow-color);
 }
 
 a:link {
 	color: white;
 }
-
 a:visited {
 	color: darkgray;
 }
-
 a:hover {
 	color: #777777;
 }
 
 
+/* FormKit */
+/* general wrappers */
+.formkit-wrapper[data-tab-style="progress"] {
+	margin: 3rem auto 5rem auto;
+}
+
+.formkit-input {
+	margin: 0;
+}
+
+.formkit-outer[data-type='multi-step'] > .formkit-wrapper > .formkit-steps {
+	border: none;
+	padding: 0;
+}
+
+/* tabs */
+.formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs {
+	pointer-events: none;
+
+	background: transparent;
+	border: none;
+
+	margin-top: 0;
+	margin-bottom: 3rem;
+}
+
+.formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab {
+	margin: 0;
+	box-shadow: none !important;
+
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(45deg, #484848, #656565, #484848, #656565, #484848, #656565) border-box;
+	background-size: 300% 100%;
+}
+
+.formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab::before,
+.formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab::after,
+.formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab .formkit-badge {
+	display: none;
+}
+
+.formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab .formkit-tab-label {
+	position: relative;
+	font-size: x-large;
+}
+
+.formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab[data-active='true'] {
+	color: white;
+	font-weight: initial;
+
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(45deg, #dd9aee, #ef5e3e, #78e76c, #dd9aee, #ef5e3e, #78e76c) border-box;
+	background-size: 300% 100%;
+}
+
+
+/* options field */
+.formkit-fieldset {
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(45deg, #2587ff, #3ff6de, #8b59ff, #2587ff, #3ff6de, #8b59ff) border-box;
+	background-size: 300% 100%;
+}
+
+.formkit-outer[data-invalid='true']:not([data-empty="true"]) > .formkit-fieldset {
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(45deg, #484848, #656565, #484848, #656565, #484848, #656565) border-box;
+	background-size: 300% 100%;
+}
+
+.formkit-outer[data-invalid='true']:not([data-empty="true"]) > .formkit-fieldset,
+.formkit-outer[data-complete='true'] > .formkit-fieldset {
+	pointer-events: none;
+}
+
+/* options */
+.formkit-options {
+	list-style-type: none;
+}
+
+.formkit-option {
+	text-align: left;
+	margin: 1rem;
+}
+
+.formkit-option > label.formkit-wrapper {
+	cursor: pointer;
+	padding: 7px;
+	border-radius: 20px;
+	transition: background-color 0.15s;
+}
+
+.formkit-option > label.formkit-wrapper:hover {
+	background-color: #6f6f6f2f;
+}
+
+span.formkit-inner {
+	margin-right: 1.5rem;
+}
+
+/* options dot */
+input.formkit-input {
+	appearance: none;
+	-webkit-appearance: none;
+
+	width: 1.5rem;
+	height: 1.5rem;
+	margin: 0;
+
+	cursor: pointer;
+
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(45deg, #2587ff, #3ff6de, #8b59ff, #2587ff, #3ff6de, #8b59ff) border-box;
+	background-size: 300% 100%;
+}
+
+input.formkit-input:checked {
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(45deg, #deef74, #b1ff99, #ffc778, #deef74, #b1ff99, #ffc778) border-box;
+	background-size: 300% 100%;
+}
+
+.formkit-outer[data-invalid='true']:not([data-empty="true"]) > .formkit-fieldset input.formkit-input {
+	filter: grayscale(100%);
+}
+
+.formkit-outer.wrong-verified input.formkit-input:checked {
+	filter: grayscale(0%) !important;
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(55deg, #6a0000, #9b0808, #6a0000, #9b0808, #6a0000, #9b0808) border-box;
+	background-size: 300% 100%;
+}
+
+/* error messages */
+li.formkit-message {
+	list-style-type: none;
+	border: none;
+	background: none;
+	color: red;
+	text-shadow: 0px 0px 8px rgb(178, 79, 79);
+}
+
+li.formkit-message[id*='required'] {
+	color: white;
+	text-shadow: 0px 0px 7px var(--text-shadow-color);
+}
+
+/* bottom button */
+.formkit-step-actions > button {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	margin-bottom: 3rem;
+}
+
+.formkit-step-actions {
+	min-height: 3rem;
+}
+
+
+/* Keyframes */
 @keyframes grad-shift {
 	0% {
 		background-position: 0% 50%;

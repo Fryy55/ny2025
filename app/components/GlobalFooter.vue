@@ -30,7 +30,7 @@ p {
 .by {
 	text-align: left;
 	padding-left: 10px;
-	color: #1e1c1c;
+	color: #191717;
 }
 
 .github-logo {
