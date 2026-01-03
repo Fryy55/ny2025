@@ -58,7 +58,10 @@
 		</FormKit>
 	</div>
 	<div v-else-if="state === 'name'">
-		<p>s</p>
+		<div v-if="!loaded" class="loading-wrapper">
+			<p class="loading-paragraph">Загрузка...</p>
+		</div>
+		<p v-else class="name-display">{{ name }}</p>
 	</div>
 </template>
 
@@ -104,7 +107,7 @@ const hash = route.query.recipient;
 const state = ref("start");
 
 if (route.query.toQuiz)
-	state.value = "name";
+	state.value = "quiz";
 
 
 const isWrongAnswer = ref(false);
@@ -127,8 +130,17 @@ const verifyAnswer = async (node: FormKitNode): Promise<boolean> => {
 };
 
 // name stuff
-const onReveal = () => {
+const name = ref("");
+const loaded = ref(false);
+const onReveal = async () => {
 	state.value = "name";
+
+	name.value = await $fetch("/api/name-for-hash", {
+		method: "POST",
+		body: { hash: hash }
+	});
+
+	loaded.value = true;
 };
 </script>
 
@@ -142,5 +154,21 @@ const onReveal = () => {
 
 .start-button {
 	margin-top: 4rem;
+}
+
+/* name stuff */
+.loading-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.loading-paragraph {
+	display: inline-block;
+	margin-top: 7rem;
+}
+
+.name-display {
+	border: none;
 }
 </style>
