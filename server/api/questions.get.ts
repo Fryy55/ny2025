@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) => {
-	return [
+	const questions = [
 		{
 			id: 'q1',
 			text: 'test stuff 1',
@@ -21,4 +21,13 @@ export default defineEventHandler(async (event) => {
 			options: ['option1', 'option2', 'option3 <', 'option4']
 		}
 	];
+
+	for (let i = questions.length - 2; 0 < i; --i) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[questions[i], questions[j]] = [questions[j]!, questions[i]!];
+	}
+
+	questions[2] = questions.at(-1)!;
+
+	return questions.slice(0, 3);
 });

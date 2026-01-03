@@ -98,7 +98,6 @@ definePageMeta({
 });
 
 // post-validation
-
 const route = useRoute();
 const hash = route.query.recipient;
 
@@ -109,10 +108,13 @@ if (route.query.toQuiz)
 
 
 const isWrongAnswer = ref(false);
+const currentQuiz = ref(await $fetch(
+	"/api/questions", { method: "GET" }
+));
 
 const verifyAnswer = async (node: FormKitNode): Promise<boolean> => {
 	const id = node.context!.id;
-	const answerInd = questions.find(i => i.id === id)!.options.indexOf(node.value as string);
+	const answerInd = currentQuiz.value.find(i => i.id === id)!.options.indexOf(node.value as string);
 
 	const { correct } = await $fetch<{ correct: boolean }>("/api/verify-answer", {
 		method: "POST",
@@ -123,30 +125,6 @@ const verifyAnswer = async (node: FormKitNode): Promise<boolean> => {
 
 	return correct;
 };
-
-interface Question {
-	id: string,
-	text: string,
-	options: string[]
-};
-
-const currentQuiz = ref<Question[]>([]);
-const questions = await $fetch<Question[]>(
-	"/api/questions", { method: "GET" }
-);
-
-onMounted(async () => {
-	for (let i = questions.length - 2; 0 < i; --i) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[questions[i], questions[j]] = [questions[j]!, questions[i]!];
-	}
-
-	questions[2] = questions.at(-1)!;
-
-	currentQuiz.value = questions.slice(0, 3);
-
-	return;
-});
 
 // name stuff
 const onReveal = () => {
