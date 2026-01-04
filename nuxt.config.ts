@@ -23,6 +23,9 @@ export default defineNuxtConfig({
 			]
 		}
 	},
+	routeRules: {
+		'/quiz': { ssr: false }
+	},
 
 	modules: [
 		'@nuxt/fonts',

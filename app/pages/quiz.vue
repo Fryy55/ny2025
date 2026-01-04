@@ -2,7 +2,7 @@
 	<div class="initial-div" v-if="state === 'start'">
 		<p>
 			Снизу небольшая викторина.<br />
-			Чтобы узнать, чей это подарок, нужно ответить всего лишь на 3 вопроса <em>подряд</em>.<br />
+			Чтобы узнать, чей это подарок, нужно ответить всего лишь на 3 вопроса <em>подряд</em> (пожалуйста без гугла :c) (дается бесконечность попыток) (возможных вопросов 11).<br />
 			Удачи!
 		</p>
 		<button
@@ -21,7 +21,8 @@
 					type="step"
 					:name="`Вопрос #${index + 1}`"
 				>
-					<p>{{ q.text }}</p>
+					<p class="quiz-paragraph">{{ q.text }}</p>
+					<img v-if="'image' in q" :src="q.image" class="quiz-image" />
 					<FormKit
 						type="radio"
 						:options="q.options"
@@ -152,6 +153,24 @@ const onReveal = async () => {
 
 .start-button {
 	margin-top: 4rem;
+}
+
+/* quiz stuff */
+.quiz-paragraph {
+	margin-left: 10rem;
+	margin-right: 10rem;
+}
+
+.quiz-image {
+	max-width: 80%;
+	margin-bottom: 1rem;
+
+	border: 6px solid transparent;
+	border-radius: 20px;
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(45deg, #dd9aee, #ef5e3e, #78e76c, #dd9aee, #ef5e3e, #78e76c) border-box;
+	background-size: 300% 100%;
 }
 
 /* name stuff */

@@ -94,6 +94,7 @@ a:hover {
 
 	margin-top: 0;
 	margin-bottom: 3rem;
+	gap: 0.3rem;
 }
 
 .formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab {
@@ -124,6 +125,13 @@ a:hover {
 	background:
 		linear-gradient(var(--background-color)) padding-box,
 		linear-gradient(45deg, #dd9aee, #ef5e3e, #78e76c, #dd9aee, #ef5e3e, #78e76c) border-box;
+	background-size: 300% 100%;
+}
+
+.formkit-outer[data-type='multi-step'] > [data-tab-style='progress'] > .formkit-tabs .formkit-tab[data-valid='true'] {
+	background:
+		linear-gradient(var(--background-color)) padding-box,
+		linear-gradient(45deg, #36f542, #b1ff99, #25ffb3, #36f542, #b1ff99, #25ffb3) border-box;
 	background-size: 300% 100%;
 }
 
@@ -160,6 +168,8 @@ a:hover {
 
 .formkit-option > label.formkit-wrapper {
 	cursor: pointer;
+	font-size: x-large;
+	line-height: 1.6;
 	padding: 7px;
 	border-radius: 20px;
 	transition: background-color 0.15s;

@@ -1,7 +1,7 @@
 <template>
 	<footer>
 		<p class="by">by Em &lt;3</p>
-		<img src="/images/github-logo.svg" alt="GitHub logo" class="github-logo" />
+		<img src="/github-logo.svg" alt="GitHub logo" class="github-logo" />
 		<p class="repo-link"><a href="https://github.com/Fryy55/ny2025">Source code</a></p>
 	</footer>
 </template>
