@@ -13,7 +13,14 @@ useHead({
 
 
 <style lang="css" scoped>
+div {
+	display: flex;
+}
+
 p {
+	margin: auto;
 	margin-top: 10rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 </style>
