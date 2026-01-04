@@ -38,7 +38,7 @@
 					/>
 
 					<template #stepNext="{ handlers, node }">
-						<button v-if="node.context!.state.valid && q.id != 'q10'" @click="handlers.next">
+						<button v-if="node.context!.state.valid && q.id != 'q11'" @click="handlers.next">
 							Далее
 						</button>
 
