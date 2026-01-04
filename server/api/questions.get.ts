@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
 		[questions[i], questions[j]] = [questions[j]!, questions[i]!];
 	}
 
-	questions[0] = questions.at(-1)!;
+	questions[2] = questions.at(-1)!;
 
-	return questions.slice(0, 1);
+	return questions.slice(0, 3);
 });

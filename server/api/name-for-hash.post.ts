@@ -7,7 +7,5 @@ export default defineEventHandler(async (event) => {
 		"fc3b489b79f807e9b5ba46924fe075e6": "Папы"
 	};
 
-	await new Promise(resolve => setTimeout(resolve, 1000));
-
 	return names[hash];
 });

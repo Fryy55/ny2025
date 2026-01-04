@@ -61,7 +61,7 @@
 		<div v-if="!loaded" class="loading-wrapper">
 			<p class="loading-paragraph">Загрузка...</p>
 		</div>
-		<p v-else class="name-display">{{ name }}</p>
+		<NameDisplay v-else>{{ name }}</NameDisplay>
 	</div>
 </template>
 
@@ -102,8 +102,6 @@ definePageMeta({
 
 // post-validation
 const route = useRoute();
-const hash = route.query.recipient;
-
 const state = ref("start");
 
 if (route.query.toQuiz)
@@ -137,7 +135,7 @@ const onReveal = async () => {
 
 	name.value = await $fetch("/api/name-for-hash", {
 		method: "POST",
-		body: { hash: hash }
+		body: { hash: route.query.recipient }
 	});
 
 	loaded.value = true;
@@ -164,11 +162,6 @@ const onReveal = async () => {
 }
 
 .loading-paragraph {
-	display: inline-block;
 	margin-top: 7rem;
-}
-
-.name-display {
-	border: none;
 }
 </style>
