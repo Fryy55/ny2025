@@ -41,7 +41,7 @@ setTimeout(async () => {
 						return 50;
 
 					case recipient.length - 1:
-						return 100;
+						return 75;
 
 					default:
 						return 15;
