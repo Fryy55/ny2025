@@ -79,7 +79,7 @@ export default defineEventHandler(async (event) => {
 		},
 		{
 			id: 'q10',
-			text: 'Что произойдет в результате исполнения этого кода?',
+			text: 'Что произойдет в результате исполнения этого кода (nasm с System V AMD64 ABI)?',
 			image: 'images/asm.png',
 			options: [
 				'Вызов nasm syscall-а, который xor-ит RAX на RAX в текущем контексте, делая значение RAX = 0',
