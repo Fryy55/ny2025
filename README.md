@@ -6,7 +6,7 @@ Uses Nuxt as the base framework, to run:
 
 ```bash
 npm install
-npm run dev # or `npm run build; npm run start` for prod build
+npm run dev # or `npm run build && npm run start` for prod build
 ```
 
 # License
