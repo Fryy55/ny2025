@@ -6,6 +6,7 @@
 html, body {
 	margin: 0;
 	padding: 0;
+	overscroll-behavior: none;
 }
 
 body {
@@ -142,6 +143,9 @@ a:hover {
 		linear-gradient(var(--background-color)) padding-box,
 		linear-gradient(45deg, #2587ff, #3ff6de, #8b59ff, #2587ff, #3ff6de, #8b59ff) border-box;
 	background-size: 300% 100%;
+
+	margin-left: 7rem;
+	margin-right: 7rem;
 }
 
 .formkit-outer[data-invalid='true']:not([data-empty="true"]) > .formkit-fieldset {

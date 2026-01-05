@@ -157,8 +157,8 @@ const onReveal = async () => {
 
 /* quiz stuff */
 .quiz-paragraph {
-	margin-left: 10rem;
-	margin-right: 10rem;
+	margin-left: 7rem;
+	margin-right: 7rem;
 }
 
 .quiz-image {

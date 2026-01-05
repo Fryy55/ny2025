@@ -19,6 +19,10 @@ export default defineNuxtConfig({
 				{
 					name: 'description',
 					content: 'ура урааа ура урааа сайт'
+				},
+				{
+					name: 'viewport',
+					content: 'shrink-to-fit=no'
 				}
 			]
 		}
