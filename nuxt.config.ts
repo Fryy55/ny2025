@@ -24,7 +24,19 @@ export default defineNuxtConfig({
 		}
 	},
 	routeRules: {
-		'/quiz': { ssr: false }
+		'/quiz': { ssr: false },
+		'/wishes': { ssr: false }
+	},
+	nitro: {
+		experimental: {
+			database: true
+		},
+		database: {
+			default: {
+				connector: 'sqlite',
+				options: { name: 'wishes' }
+			}
+		}
 	},
 
 	modules: [
