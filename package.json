@@ -12,8 +12,10 @@
   "dependencies": {
     "@formkit/addons": "^1.7.2",
     "@formkit/nuxt": "^1.7.2",
-    "@le-pepe/nuxt-snow-effect": "^1.5.0",
     "@nuxt/fonts": "^0.12.1",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/slim": "^3.9.1",
+    "@tsparticles/vue3": "^3.0.1",
     "nuxt": "^4.2.2",
     "vue": "^3.5.26",
     "vue-router": "^4.6.4"

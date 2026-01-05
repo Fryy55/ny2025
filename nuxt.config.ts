@@ -41,7 +41,6 @@ export default defineNuxtConfig({
 
 	modules: [
 		'@nuxt/fonts',
-		'@le-pepe/nuxt-snow-effect',
 		'@formkit/nuxt'
 	],
 	fonts: {
